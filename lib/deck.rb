@@ -8,7 +8,9 @@ class Deck
     def initialize()
         @deck = []
         CARDS.each do |card|
-            SUITS.each { |suit| @deck << Card.new(suit, card) }
+            value = 1
+            SUITS.each { |suit| @deck << Card.new(suit, value, card) }
+            value += 1
         end
     end
 end

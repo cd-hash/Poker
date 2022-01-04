@@ -1,7 +1,7 @@
 require 'card'
 
 describe Card do
-    subject(:card) {Card.new('spades', '10')}
+    subject(:card) {Card.new('spades', 10, '10')}
 
     describe '#initialize' do
         it 'has a suit' do
