@@ -3,7 +3,7 @@ require_relative 'card'
 class Deck
     attr_reader :deck
     SUITS = [:spades, :hearts, :diamonds, :clubs]
-    CARDS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'King', 'Queen', 'Jack', 'Ace']
+    CARDS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
 
     def initialize()
         @deck = []
