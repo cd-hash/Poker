@@ -4,7 +4,7 @@ class Hand
     def initialize(cards)
         @my_hand = cards
         @hand_value = {}
-        #calculate_hand
+        calculate_hand
     end
 
     def calculate_hand
@@ -18,10 +18,26 @@ class Hand
             elsif sorted_cards.sum { |card| card.numerical_value} == 55
                 hand_hash['royal flush'] = 10
             else
-                hand_hash['straight flush']
+                hand_hash['straight flush'] = 9
             end
         else # four of a kind, full house, flush, 3 of a kind, 2 of a kind, 2 pair, pair, high card
-
+            if matching_suits.length == 1 #flush
+                hand_hash['flush'] = 6
+            elsif matching_vals.length == 4
+                hand_hash['pair'] = 2
+            elsif matching_vals.length == 3 # two pair or 3 of a kind
+                matching_vals.each_pair do |key, value|
+                    hand_hash['two pair'] = 3 if matching_vals[key] == 2
+                    hand_hash['three of a kind'] = 4 if matching_vals[key] == 3
+                end
+            elsif matching_vals.length == 2
+                matching_vals.each_pair do |key, value|
+                    hand_hash['full house'] = 7 if matching_vals[key] == 3
+                    hand_hash['four of a kind'] = 8 if matching_vals[key] == 4
+                end
+            else
+                hand_hash['high card'] = 1
+            end
         end
 
         @hand_value = hand_hash
