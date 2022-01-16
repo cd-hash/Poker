@@ -10,5 +10,8 @@ describe Card do
         it 'has a face value' do
             expect(card.face_value).to eq('10')
         end
+        it 'has a name' do
+            expect(card.name).to eq('10 of spades')
+        end
     end
 end

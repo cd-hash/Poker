@@ -26,7 +26,12 @@ class Player
         return false
     end
 
+    def show_hand
+        puts @hand.my_hand
+    end
+
     def discard_cards(cards_to_dsicard)
-        
+        @hand.discard_cards(cards_to_dsicard)
+        return cards_to_dsicard.length
     end
 end

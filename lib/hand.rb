@@ -79,4 +79,11 @@ class Hand
         end
         return matching_suits
     end
+
+    def discard_cards(cards_to_remove)
+        cards_to_remove.each do |card_name|
+            @my_hand.delete_if { |card| card.name == card_name}
+        end
+        return @my_hand
+    end
 end
