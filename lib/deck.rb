@@ -12,5 +12,6 @@ class Deck
             SUITS.each { |suit| @deck << Card.new(suit, value, card) }
             value += 1
         end
+        @deck.shuffle!
     end
 end
