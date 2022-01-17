@@ -8,8 +8,18 @@ class Player
         @pot = pot
     end
 
-    def get_user_input
-
+    def get_user_input(current_bet)
+        puts 'Player would you like to See, Raise, Fold'
+        cmd, raise_amount = gets.chomp.split(' ')
+        
+        case cmd
+        when 'See'
+            see(current_bet)
+        when 'Raise'
+            increase(current_bet, raise_amount)
+        when 'Fold'
+            fold
+        end
     end
 
     def see(current_bet)
