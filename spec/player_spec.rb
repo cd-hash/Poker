@@ -32,7 +32,7 @@ describe Player do
             expect(player.pot).to eq(pot - current_bet)
         end
         it 'gives that money to the game pot' do
-            expect(player.see(current_bet)).to eq(current_bet)
+            expect(player.see(current_bet)).to eq([:see, current_bet])
         end
     end
 
@@ -42,13 +42,13 @@ describe Player do
             expect(player.pot).to eq( pot - (current_bet + increase_bet) )
         end
         it 'gives that money to the game pot' do
-            expect( player.increase(current_bet, increase_bet) ).to eq(current_bet + increase_bet)
+            expect( player.increase(current_bet, increase_bet) ).to eq( [:raise, (current_bet + increase_bet)] )
         end
     end
 
     describe '#fold' do
         it 'tells the game that this player is out' do
-            expect(player.fold).to be false
+            expect(player.fold).to eq( [:fold] )
         end
     end
 
